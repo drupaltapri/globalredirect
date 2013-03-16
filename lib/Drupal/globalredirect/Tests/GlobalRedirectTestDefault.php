@@ -1,16 +1,19 @@
 <?php
 
+namespace Drupal\globalredirect\Tests;
+
+use Drupal\simpletest\WebTestBase;
+
 define('ERROR_MESSAGE',   'ERROR<br />Expected Path: !expected_path<br />Expected Status Code: !expected_status<br />Location: !location<br />Status: !status');
 define('SUCCESS_MESSAGE', 'SUCCESS<br />Expected Path: !expected_path<br />Expected Status Code: !expected_status<br />Location: !location<br />Status: !status');
 define('INFO_MESSAGE',    'Running Test: !id<br />Requesting URL: !url<br />Path Info:<br />!path');
-
 
 /**
  * @file
  * Global Redirect functionality tests
  */
 
-class GlobalRedirectTestCase extends DrupalWebTestCase {
+class GlobalRedirectTest extends WebTestBase {
 
   private $gr_forum_term;
   private $gr_term;
@@ -327,7 +330,7 @@ class GlobalRedirectTestCase extends DrupalWebTestCase {
 }
 
 
-class GlobalRedirectTestCaseDefault extends GlobalRedirectTestCase {
+class GlobalRedirectTestDefault extends GlobalRedirectTest {
   public static function getInfo() {
     return array(
       'name' => '1. Global Redirect - Default Settings',
@@ -352,7 +355,7 @@ class GlobalRedirectTestCaseDefault extends GlobalRedirectTestCase {
 }
 
 
-class GlobalRedirectTestCaseConfigAlpha extends GlobalRedirectTestCase {
+class GlobalRedirectTestConfigAlpha extends GlobalRedirectTest {
   public static function getInfo() {
     return array(
       'name' => '2. Global Redirect - Config Alpha',
@@ -379,7 +382,7 @@ class GlobalRedirectTestCaseConfigAlpha extends GlobalRedirectTestCase {
 
 
 
-class GlobalRedirectTestCaseConfigBeta extends GlobalRedirectTestCase {
+class GlobalRedirectTestConfigBeta extends GlobalRedirectTest {
   public static function getInfo() {
     return array(
       'name' => '3. Global Redirect - Config Beta',
@@ -408,7 +411,7 @@ class GlobalRedirectTestCaseConfigBeta extends GlobalRedirectTestCase {
 // This why they are separated out into to test suites.
 
 
-class GlobalRedirectTestCaseConfigLanguages extends GlobalRedirectTestCase {
+class GlobalRedirectTestConfigLanguages extends GlobalRedirectTest {
   public static function getInfo() {
     return array(
       'name' => '4. Global Redirect - Languages',
